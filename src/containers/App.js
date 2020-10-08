@@ -4,6 +4,7 @@ import CardList from '../components/CardList.js'
 import SearchBox from "../components/SearchBar.js";
 import 'tachyons';
 import './App.css';
+import ErrorBoundry from "../components/ErrorBoundry.js"
 
 
 
@@ -33,7 +34,10 @@ export default class App extends Component{
             <h1 className="f2">Mochte virtual bots</h1>
             <SearchBox onSearchChange={this.onSearchChange}/>
             <Scroll>
-            <CardList robots={filteredRobots}/>
+                <ErrorBoundry>
+                    <CardList robots={filteredRobots}/>
+                </ErrorBoundry>
+                
             </Scroll>
         </div>
         
